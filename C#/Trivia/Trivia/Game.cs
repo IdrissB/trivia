@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Trivia
 {
@@ -67,9 +68,7 @@ namespace Trivia
                     isGettingOutOfPenaltyBox = true;
 
                     Console.WriteLine(players[currentPlayer].Name + " is getting out of the penalty box");
-                    players[currentPlayer].Place = players[currentPlayer].Place + roll;
-                    if (players[currentPlayer].Place > 11) players[currentPlayer].Place = players[currentPlayer].Place - 12;
-
+                    players[currentPlayer].Move(roll);
                     Console.WriteLine(players[currentPlayer].Name
                             + "'s new location is "
                             + players[currentPlayer].Place);
@@ -86,9 +85,7 @@ namespace Trivia
             else
             {
 
-                players[currentPlayer].Place = players[currentPlayer].Place + roll;
-                if (players[currentPlayer].Place > 11) players[currentPlayer].Place = players[currentPlayer].Place - 12;
-
+                players[currentPlayer].Move(roll);
                 Console.WriteLine(players[currentPlayer].Name
                         + "'s new location is "
                         + players[currentPlayer].Place);

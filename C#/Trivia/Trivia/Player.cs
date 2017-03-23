@@ -22,5 +22,11 @@ namespace Trivia
         public int Purse { get; set; }
 
         public bool InPenaltyBox { get; set; }
+
+        public void Move(int roll)
+        {
+            Place += roll;
+            if (Place > 11) Place -= 12;
+        }
     }
 }
