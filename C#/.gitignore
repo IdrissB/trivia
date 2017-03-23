@@ -7,3 +7,5 @@ obj/
 bin/
 packages/
 .paket/
+*.received.txt
+*ncrunch*

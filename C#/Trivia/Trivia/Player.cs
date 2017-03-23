@@ -7,42 +7,20 @@ namespace Trivia
 {
     class Player
     {
-        private string name;
-        private int place;
-        private int purse;
-        private bool inPenaltyBox;
-
         public Player(string name)
         {
             this.Name = name;
-            place = 0;
-            purse = 0;
-            inPenaltyBox = false;
+            Place = 0;
+            Purse = 0;
+            InPenaltyBox = false;
         }
 
+        public string Name { get; set; }
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public int Place { get; set; }
 
-        public int Place
-        {
-            get { return place; }
-            set { place = value; }
-        }
+        public int Purse { get; set; }
 
-        public int Purse
-        {
-            get { return purse; }
-            set { purse = value; }
-        }
-
-        public bool InPenaltyBox
-        {
-            get { return inPenaltyBox; }
-            set { inPenaltyBox = value; }
-        }
+        public bool InPenaltyBox { get; set; }
     }
 }
