@@ -18,6 +18,7 @@ namespace Trivia
 
         int currentPlayer = 0;
         bool isGettingOutOfPenaltyBox;
+        private Dictionary<int, string> themeQuestions = new Dictionary<int, string> { { 0, "Pop" }, { 1, "Science" }, { 2, "Sports" }, { 3, "Rock" } };
 
         public Game()
         {
@@ -120,68 +121,45 @@ namespace Trivia
         }
 
 
-        private String CurrentCategory()
+        private string CurrentCategory()
         {
-            var themeQuestions=  new Dictionary<int, String>();
-            themeQuestions.Add(0, "Pop");
-            themeQuestions.Add(1, "Science");
-            themeQuestions.Add(2, "Sports");
-            themeQuestions.Add(3, "Rock");
             return themeQuestions[players[currentPlayer].Place % 4];
         }
 
         public bool WasCorrectlyAnswered()
         {
+            bool winner;
             if (players[currentPlayer].InPenaltyBox)
             {
                 if (isGettingOutOfPenaltyBox)
                 {
                     Console.WriteLine("Answer was correct!!!!");
                     players[currentPlayer].WinAGoldCoin();
-                    Console.WriteLine(players[currentPlayer].Name
-                            + " now has "
-                            + players[currentPlayer].GoldCoins
-                            + " Gold Coins.");
 
-                    bool winner = DidPlayerWin();
+                    winner = DidPlayerWin();
                     currentPlayer++;
                     if (currentPlayer == players.Count) currentPlayer = 0;
 
                     return winner;
                 }
-                else
-                {
-                    currentPlayer++;
-                    if (currentPlayer == players.Count) currentPlayer = 0;
-                    return true;
-                }
-
-
-
-            }
-            else
-            {
-
-                Console.WriteLine("Answer was corrent!!!!");
-                players[currentPlayer].GoldCoins++;
-                Console.WriteLine(players[currentPlayer].Name
-                        + " now has "
-                        + players[currentPlayer].GoldCoins
-                        + " Gold Coins.");
-
-                bool winner = DidPlayerWin();
                 currentPlayer++;
                 if (currentPlayer == players.Count) currentPlayer = 0;
-
-                return winner;
+                return true;
             }
+            Console.WriteLine("Answer was corrent!!!!");
+            players[currentPlayer].WinAGoldCoin();
+            winner = DidPlayerWin();
+            currentPlayer++;
+            if (currentPlayer == players.Count) currentPlayer = 0;
+
+            return winner;
         }
 
         public bool WrongAnswer()
         {
             Console.WriteLine("Question was incorrectly answered");
             Console.WriteLine(players[currentPlayer].Name + " was sent to the penalty box");
-            players[currentPlayer].InPenaltyBox = true;
+            players[currentPlayer].GoToPenaltyBox();
 
             currentPlayer++;
             if (currentPlayer == players.Count) currentPlayer = 0;

@@ -9,7 +9,7 @@ namespace Trivia
     {
         public Player(string name)
         {
-            this.Name = name;
+            Name = name;
             Place = 0;
             GoldCoins = 0;
             InPenaltyBox = false;
@@ -32,6 +32,12 @@ namespace Trivia
         public void WinAGoldCoin()
         {
             GoldCoins++;
+            Console.WriteLine(Name+ " now has "+ GoldCoins + " Gold Coins.");
+        }
+
+        public void GoToPenaltyBox()
+        {
+            InPenaltyBox = true;
         }
     }
 }
