@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Trivia
 {
-    class Player
+    public class Player
     {
         public Player(string name)
         {
@@ -38,6 +35,11 @@ namespace Trivia
         public void GoToPenaltyBox()
         {
             InPenaltyBox = true;
+        }
+
+        public bool IsWinner()
+        {
+            return  GoldCoins != 6;
         }
     }
 }
