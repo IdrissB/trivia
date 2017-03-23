@@ -11,7 +11,7 @@ namespace Trivia
         {
             this.Name = name;
             Place = 0;
-            Purse = 0;
+            GoldCoins = 0;
             InPenaltyBox = false;
         }
 
@@ -19,7 +19,7 @@ namespace Trivia
 
         public int Place { get; set; }
 
-        public int Purse { get; set; }
+        public int GoldCoins { get; set; }
 
         public bool InPenaltyBox { get; set; }
 
@@ -27,6 +27,11 @@ namespace Trivia
         {
             Place += roll;
             if (Place > 11) Place -= 12;
+        }
+
+        public void WinAGoldCoin()
+        {
+            GoldCoins++;
         }
     }
 }
