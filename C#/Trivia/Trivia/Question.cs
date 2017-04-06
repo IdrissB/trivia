@@ -1,23 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Trivia
 {
     public class Question
     {
-        public string Type { get; private set; }
-        public List<string> Questions { get; private set; }
+        public string QuestionPose { get; private set; }
+        public string Reponse { get; private set; }
 
-        public Question(string type, List<string> questions)
+        public Question(string questionPose, string reponse)
         {
-            Type = type;
-            Questions = questions;
-                
+            QuestionPose = questionPose;
+            Reponse = reponse;
         }
 
-        public string CreateQuestion(string type, int i)
+
+
+        public override string ToString()
         {
-            return type + " question " + i;
+            return "La question est la suivante " + QuestionPose;
         }
     }
 }
