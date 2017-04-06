@@ -9,15 +9,10 @@ namespace Trivia
     {
         private readonly Dictionary<int, string> _themeQuestions = new Dictionary<int, string> { { 0, "Pop" }, { 1, "Science" }, { 2, "Sports" }, { 3, "Rock" } };
 
-        LinkedList<string> popQuestions = new LinkedList<string>();
-        LinkedList<string> scienceQuestions = new LinkedList<string>();
-        LinkedList<string> sportsQuestions = new LinkedList<string>();
-        LinkedList<string> rockQuestions = new LinkedList<string>();
-
-        //TypeQuestion popQuestions = new TypeQuestion("Pop");
-        //TypeQuestion scienceQuestions = new TypeQuestion("Science");
-        //TypeQuestion sportsQuestions = new TypeQuestion("Sport");
-        //TypeQuestion rockQuestions = new TypeQuestion("Rock");
+        readonly TypeQuestion _popQuestions = new TypeQuestion("Pop");
+        readonly TypeQuestion _scienceQuestions = new TypeQuestion("Science");
+        readonly TypeQuestion _sportsQuestions = new TypeQuestion("Sport");
+        readonly TypeQuestion _rockQuestions = new TypeQuestion("Rock");
 
 
         public void AskQuestion(int currentPlayerPlace)
@@ -25,23 +20,19 @@ namespace Trivia
             Console.WriteLine("The category is " + CurrentCategory(currentPlayerPlace));
             if (CurrentCategory(currentPlayerPlace) == "Pop")
             {
-                Console.WriteLine(popQuestions.First());
-                popQuestions.RemoveFirst();
+                _popQuestions.AskAquestion();
             }
             if (CurrentCategory(currentPlayerPlace) == "Science")
             {
-                Console.WriteLine(scienceQuestions.First());
-                scienceQuestions.RemoveFirst();
+                _scienceQuestions.AskAquestion();
             }
             if (CurrentCategory(currentPlayerPlace) == "Sports")
             {
-                Console.WriteLine(sportsQuestions.First());
-                sportsQuestions.RemoveFirst();
+                _sportsQuestions.AskAquestion();
             }
             if (CurrentCategory(currentPlayerPlace) == "Rock")
             {
-                Console.WriteLine(rockQuestions.First());
-                rockQuestions.RemoveFirst();
+                _rockQuestions.AskAquestion();
             }
         }
 
@@ -54,16 +45,12 @@ namespace Trivia
         {
             for (int i = 0; i < 50; i++)
             {
-                popQuestions.AddLast("Pop Question " + i);
-                scienceQuestions.AddLast(("Science Question " + i));
-                sportsQuestions.AddLast(("Sports Question " + i));
-                rockQuestions.AddLast(createRockQuestion(i));
+                _popQuestions.CreateQuestion(i);
+                _scienceQuestions.CreateQuestion(i);
+                _sportsQuestions.CreateQuestion(i);
+                _rockQuestions.CreateQuestion(i);
             }
         }
 
-        public String createRockQuestion(int index)
-        {
-            return "Rock Question " + index;
-        }
     }
 }

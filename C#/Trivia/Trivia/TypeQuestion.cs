@@ -1,23 +1,29 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Trivia
 {
     public class TypeQuestion
     {
-        private string NomType;
-        private LinkedList<string> questions = new LinkedList<string>();
+        private string _nomType;
+        private LinkedList<string> _questions = new LinkedList<string>();
         //public string TypeJeu { get; private set; }
 
-        public TypeQuestion(string nomType)
+        public TypeQuestion(string nom)
         {
-            NomType = nomType;
+            _nomType = nom;
         }
 
         public void CreateQuestion(int questionIndex)
         {
-                questions.AddLast(NomType + "Question " + questionIndex);
+                _questions.AddLast(_nomType + "Question " + questionIndex);
         }
 
+        public void AskAquestion()
+        {
+            Console.WriteLine(_questions.First());
+            _questions.RemoveFirst();
+        }
     }
 }

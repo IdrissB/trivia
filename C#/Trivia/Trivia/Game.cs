@@ -9,23 +9,17 @@ namespace Trivia
     {
         private readonly Players _players;
         //private readonly TypeQuestion _questions = new TypeQuestion("Pop");
+        private readonly Questions _questions = new Questions();
 
-        private Questions _questions = new Questions();
-
-        
-        
         bool _isGettingOutOfPenaltyBox;
         
-
         public Game(Players players)
         {
             _players = players;
             _questions.Generate();
             
         }
-
-       
-
+        
         public void Roll(int roll)
         {
             Console.WriteLine(_players.Current.Name + " is the current player");
