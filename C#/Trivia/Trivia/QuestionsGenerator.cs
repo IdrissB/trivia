@@ -2,7 +2,7 @@
 
 namespace Trivia
 {
-    public class QuestionsGenerator
+    public class QuestionsGenerator : IQuestionsRepository
     {
         public LinkedList<string> GetQuestions(string category)
         {

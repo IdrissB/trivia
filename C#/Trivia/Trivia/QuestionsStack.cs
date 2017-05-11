@@ -6,22 +6,15 @@ namespace Trivia
 {
     internal class QuestionsStack
     {
-        private readonly LinkedList<string> _questions = new LinkedList<string>();
+        private readonly LinkedList<string> _questions;
 
-        public QuestionsStack(string category)
+        public QuestionsStack(string category, IQuestionsRepository questionsGenerator)
         {
-            _questions = GenerateQuestions(category);
+            Category = category;
+            _questions = questionsGenerator.GetQuestions(category);
         }
 
-        public LinkedList<string> GenerateQuestions(string category)
-        {
-            LinkedList<string> generateQuestions = new LinkedList<string>();
-            for (var i = 0; i < 50; i++)
-            {
-                _questions.AddLast(Category + " Question " + i);
-            }
-            return generateQuestions;
-        }
+       
 
         public string Category { get; private set; }
 
