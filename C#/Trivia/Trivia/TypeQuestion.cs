@@ -6,18 +6,18 @@ namespace Trivia
 {
     public class TypeQuestion
     {
-        private string _nomType;
-        private LinkedList<string> _questions = new LinkedList<string>();
+        public string NomType { get; private set; }
+        private readonly LinkedList<string> _questions = new LinkedList<string>();
         //public string TypeJeu { get; private set; }
 
         public TypeQuestion(string nom)
         {
-            _nomType = nom;
+            NomType = nom;
         }
 
         public void CreateQuestion(int questionIndex)
         {
-                _questions.AddLast(_nomType + "Question " + questionIndex);
+                _questions.AddLast(NomType + "Question " + questionIndex);
         }
 
         public void AskAquestion()
