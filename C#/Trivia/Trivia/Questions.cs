@@ -7,9 +7,9 @@ namespace Trivia
     public class Questions
     {
         private readonly List<QuestionsStack> _categories = new List<QuestionsStack>();
-        private readonly IDisplay _display;
+        private readonly IDispatchEvent _display;
 
-        public Questions(IEnumerable<string> categories, IQuestionsRepository questionsGenerator, IDisplay display)
+        public Questions(IEnumerable<string> categories, IQuestionsRepository questionsGenerator, IDispatchEvent display)
         {
             _display = display;
             foreach (var category in categories)

@@ -4,7 +4,7 @@ namespace Trivia
 {
     public class Player
     {
-        private readonly IDisplay _display;
+        private readonly IDispatchEvent _display;
         public string Name { get; private set; }
 
         public int Place { get; private set; }

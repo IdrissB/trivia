@@ -68,9 +68,11 @@
     <Compile Include="Display.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameRunner.cs" />
+    <Compile Include="IDispatchEvent.cs" />
     <Compile Include="IDisplay.cs" />
     <Compile Include="IQuestionsRepository.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerRolledDice.cs" />
     <Compile Include="Players.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionFromFile.cs" />
