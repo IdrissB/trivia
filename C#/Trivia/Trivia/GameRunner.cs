@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Trivia
 {
@@ -15,7 +16,8 @@ namespace Trivia
                 players.Add("Pat");
                 players.Add("Sue");
 
-                var aGame = new Game(players, new Questions());
+                var categories = new[] {"Pop", "Science", "Sports", "Rock"};
+                var aGame = new Game(players, new Questions(categories, new QuestionsGenerator()), new Display());
 
                 Random rand = new Random(i);
 

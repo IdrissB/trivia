@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,17 @@ namespace Trivia
 
         public LinkedList<string> GetQuestions(string category)
         {
-            // Read the file as one string.
-            System.IO.StreamReader myFile =
-            new System.IO.StreamReader("c:\\test.txt");
-            string myString = myFile.ReadToEnd();
+            var questions = new LinkedList<string>();
+            using (var fileStream = File.OpenRead(category))
+            using (var streamReader = new StreamReader(fileStream))
+            {
+                while (streamReader.EndOfStream)
+                {
+                    questions.AddLast(streamReader.ReadLine());
+                }
+            }
 
-            myFile.Close();
+            return questions;
 
         }
     }
