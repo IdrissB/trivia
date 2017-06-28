@@ -21,6 +21,7 @@ namespace Trivia
             _dispatch = dispatch;
         }
 
+
         public void Roll(int roll)
         {
             _dispatch.Dispatch(new PlayerRolledDice(_players.Current.Name, roll));
@@ -31,7 +32,7 @@ namespace Trivia
                 {
                     _isGettingOutOfPenaltyBox = true;
 
-                    _dispatch.ConsoleDisplay(_players.Current.Name + " is getting out of the penalty box");
+                    _dispatch.Dispatch(new PlayerGettingOutOfJail(_players.Current.Name));
                     _players.Current.Move(roll);
 
                     _dispatch.ConsoleDisplay(_players.Current.Name
@@ -78,7 +79,7 @@ namespace Trivia
                 return false;
             }
 
-            _dispatch.ConsoleDisplay("Answer was corrent!!!!");
+            _dispatch.ConsoleDisplay("Answer was correct!!!!");
             _players.Current.WinAGoldCoin();
 
             winner = _players.Current.IsWinner();

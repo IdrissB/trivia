@@ -20,6 +20,12 @@ namespace Trivia
                 Console.WriteLine((e as PlayerRolledDice)._playerName + " is the current player");
                 Console.WriteLine("They have rolled a " + (e as PlayerRolledDice)._roll);
             }
+            else if( e is PlayerGettingOutOfJail)
+            {
+                Console.WriteLine((e as PlayerGettingOutOfJail)._playerName + " is getting out of the penalty box");
+            }
+
+
         }
     }
 }

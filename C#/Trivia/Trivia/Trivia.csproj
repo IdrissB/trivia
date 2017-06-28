@@ -72,6 +72,7 @@
     <Compile Include="IDisplay.cs" />
     <Compile Include="IQuestionsRepository.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerGettingOutOfJail.cs" />
     <Compile Include="PlayerRolledDice.cs" />
     <Compile Include="Players.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
