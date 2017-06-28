@@ -6,18 +6,20 @@ namespace Trivia
     public class GameRunner
     {
         private static bool winner;
+       
 
         public static void Main(String[] args)
         {
             for (var i = 0; i < 10; i++)
             {
-                var players = new Players();
+                var display = new Display();
+                var players = new Players(display);
                 players.Add("Chet");
                 players.Add("Pat");
                 players.Add("Sue");
 
                 var categories = new[] {"Pop", "Science", "Sports", "Rock"};
-                var aGame = new Game(players, new Questions(categories, new QuestionsGenerator()), new Display());
+                var aGame = new Game(players, new Questions(categories, new QuestionsGenerator(), display), display);
 
                 Random rand = new Random(i);
 

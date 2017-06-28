@@ -9,10 +9,11 @@ namespace Trivia
         private readonly List<Player> _players = new List<Player>();
         private readonly IDisplay _display;
 
-        public Players()
+        public Players(IDisplay display)
         {
-            _display = new Display();
+            _display = display;
         }
+
 
         public Player Current { get; private set; }
 
