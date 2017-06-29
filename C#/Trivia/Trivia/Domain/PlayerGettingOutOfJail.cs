@@ -4,18 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trivia
+namespace Trivia.Domain
 {
-    class PlayerRolledDice
+    public class PlayerGettingOutOfJail
     {
         public string _playerName { get; set; }
 
-        public int _roll { get; set; }
-
-        public PlayerRolledDice(string playerName, int roll)
+        public PlayerGettingOutOfJail(string playerName)
         {
             _playerName = playerName;
-            _roll = roll;
         }
     }
 }

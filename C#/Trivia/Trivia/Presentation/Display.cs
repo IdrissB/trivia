@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Trivia.Domain;
 
-namespace Trivia
+namespace Trivia.Presentation
 {
     public class Display : IDispatchEvent
     {
@@ -24,7 +21,14 @@ namespace Trivia
             {
                 Console.WriteLine((e as PlayerGettingOutOfJail)._playerName + " is getting out of the penalty box");
             }
-
+            else if (e is PlayerNotGettingOut)
+            {
+                Console.WriteLine((e as PlayerNotGettingOut)._playerName + " is not getting out of the penalty box");
+            }
+            else if (e is PlayerAnswerCorrect)
+            {
+                Console.WriteLine("Answer was correct!!!!");
+            }
 
         }
     }

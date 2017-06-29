@@ -2,6 +2,7 @@
 using System.IO;
 using NFluent;
 using NUnit.Framework;
+using Trivia.Presentation;
 
 namespace Trivia.Tests
 {

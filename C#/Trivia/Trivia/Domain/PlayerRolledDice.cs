@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace Trivia
 {
-    class PlayerGettingOutOfJail
+    public class PlayerRolledDice
     {
         public string _playerName { get; set; }
 
-        public PlayerGettingOutOfJail(string playerName)
+        public int _roll { get; set; }
+
+        public PlayerRolledDice(string playerName, int roll)
         {
             _playerName = playerName;
+            _roll = roll;
         }
     }
 }
